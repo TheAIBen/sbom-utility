@@ -3469,6 +3469,21 @@
             ]
         },
         {
+            "id": "PSF-2.0",
+            "name": "Python Software Foundation License 2.0",
+            "family": "PSF-2.0",
+            "reference": "https://spdx.org/licenses/PSF-2.0.html",
+            "osi": false,
+            "fsf": false,
+            "usagePolicy": "allow",
+            "annotationRefs": [
+                "APPROVED"
+            ],
+            "urls": [
+                "https://opensource.org/license/PSF-2-0"
+            ]
+        },
+        {
             "id": "Python-2.0",
             "name": "Python License 2.0",
             "family": "Python-2.0",
