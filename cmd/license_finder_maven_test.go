@@ -572,7 +572,7 @@ func TestFindLicensesOfMavenComponent(t *testing.T) {
 func TestFindLicenseOfMavenComponentInItemisMavenRepos(t *testing.T) {
 	GROUP := "org.apache.jclouds"
 	NAME := "jclouds"
-	VERSION := "2.8.0-SNAPSHOT"
+	VERSION := "2.10.1-SNAPSHOT"
 	EXPECTED_LICENSE := "The Apache Software License, Version 2.0"
 	EXPECTED_LICENSE_URL := "https://www.apache.org/licenses/LICENSE-2.0.txt"
 	innerTestFindLicenseOfMavenComponent(t, GROUP, NAME, VERSION, EXPECTED_LICENSE, EXPECTED_LICENSE_URL)
