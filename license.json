@@ -2533,6 +2533,25 @@
             ]
         },
         {
+            "id": "LLVM-exception",
+            "name": "LLVM Exception",
+            "family": "LLVM",
+            "reference": "https://spdx.org/licenses/LLVM-exception.html",
+            "osi": false,
+            "fsf": false,
+            "usagePolicy": "allow",
+            "annotationRefs": [
+                "APPROVED"
+            ],
+            "urls": [
+                "https://spdx.org/licenses/LLVM-exception.html",
+                "https://llvm.org/LICENSE.txt"
+            ],
+            "aliases": [
+                "LLVM Exception"
+            ]
+        },
+        {
             "id": "OpenJDK-assembly-exception-1.0",
             "name": "OpenJDK Assembly exception 1.0",
             "family": "GPL-2.0",

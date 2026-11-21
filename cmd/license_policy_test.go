@@ -523,7 +523,7 @@ func TestLicensePolicyMatchByFamilyNameBadExpression(t *testing.T) {
 
 func TestLicensePolicyListWrapFalse(t *testing.T) {
 	lti := NewLicensePolicyTestInfoBasic(FORMAT_TEXT, false)
-	lti.ResultExpectedLineCount = 276 // title and data rows
+	lti.ResultExpectedLineCount = 277 // title and data rows
 	// Verify first data row has expected values
 	// sanity (spot) check row values
 	lti.ResultLineContainsValuesAtLineNum = 2
@@ -536,7 +536,7 @@ func TestLicensePolicyListWrapFalse(t *testing.T) {
 
 func TestLicensePolicyListWrapTrue(t *testing.T) {
 	lti := NewLicensePolicyTestInfoBasic(FORMAT_TEXT, true)
-	lti.ResultExpectedLineCount = 436 // title and data rows
+	lti.ResultExpectedLineCount = 437 // title and data rows
 	// sanity (spot) check row values
 	lti.ResultLineContainsValuesAtLineNum = 2
 	lti.ResultLineContainsValues = []string{"0BSD", schema.POLICY_ALLOW}
@@ -764,6 +764,19 @@ func TestLicensePolicyExpressionWithConjunction(t *testing.T) {
 	EXP = "GPL-2.0 WITH OpenJDK-assembly-exception-1.0 WITH Classpath-exception-2.0"
 	EXPECTED_NAME = "GNU General Public License v2.0 only WITH OpenJDK Assembly exception 1.0 WITH Classpath exception 2.0"
 	EXPECTED_POLICY = schema.POLICY_ALLOW
+	innerTestLicenseExpressionParsing(t, EXP, EXPECTED_NAME, EXPECTED_POLICY)
+}
+
+func TestLicensePolicyExpressionWithLLVMException(t *testing.T) {
+	EXP := "Apache-2.0 WITH LLVM-exception"
+	EXPECTED_NAME := "Apache License Version 2.0 WITH LLVM Exception"
+	EXPECTED_POLICY := schema.POLICY_ALLOW
+	innerTestLicenseExpressionParsing(t, EXP, EXPECTED_NAME, EXPECTED_POLICY)
+
+	EXP = "Apache License Version 2.0 WITH LLVM-exception"
+	innerTestLicenseExpressionParsing(t, EXP, EXPECTED_NAME, EXPECTED_POLICY)
+
+	EXP = "Apache-2.0 WITH LLVM Exception"
 	innerTestLicenseExpressionParsing(t, EXP, EXPECTED_NAME, EXPECTED_POLICY)
 }
 
