@@ -1595,9 +1595,9 @@
             "reference": "",
             "osi": false,
             "fsf": false,
-            "usagePolicy": "allow",
+            "usagePolicy": "needs-review",
             "annotationRefs": [
-                "APPROVED",
+                "NEEDS-APPROVAL",
                 "NO-SPDX-ID"
             ],
             "urls": [
