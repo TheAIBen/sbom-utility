@@ -723,7 +723,7 @@ func TestLicensePolicyExpressionNoConjunction(t *testing.T) {
 
 func TestLicensePolicyExpressionAndConjunction(t *testing.T) {
 	EXP := "EPL-1.0 AND CDDL-1.0"
-	EXPECTED_POLICY := schema.POLICY_ALLOW
+	EXPECTED_POLICY := schema.POLICY_NEEDS_REVIEW
 	EXPECTED_NAME := "Eclipse Public License 1.0 AND Common Development and Distribution License 1.0"
 	innerTestLicenseExpressionParsing(t, EXP, EXPECTED_NAME, EXPECTED_POLICY)
 }
@@ -737,6 +737,11 @@ func TestLicensePolicyExpressionOrConjunction(t *testing.T) {
 	EXP = "LGPL-2.0-or-later OR MPL-1.1"
 	EXPECTED_NAME = "GNU Library General Public License v2 or later OR Mozilla Public License 1.1"
 	EXPECTED_POLICY = schema.POLICY_ALLOW
+	innerTestLicenseExpressionParsing(t, EXP, EXPECTED_NAME, EXPECTED_POLICY)
+
+	EXP = "CDDL-1.0 OR MPL-1.1"
+	EXPECTED_NAME = "Common Development and Distribution License 1.0 OR Mozilla Public License 1.1"
+	EXPECTED_POLICY = schema.POLICY_NEEDS_REVIEW
 	innerTestLicenseExpressionParsing(t, EXP, EXPECTED_NAME, EXPECTED_POLICY)
 
 	EXP = "Apache-2.0 OR LGPL-2.1-or-later"
@@ -868,7 +873,7 @@ func TestLicensePolicyExpressionWithMultipleConjunctions(t *testing.T) {
 
 	EXP = "EPL-1.0 AND Apache-2.0 AND CDDL-1.0"
 	EXPECTED_NAME = "Eclipse Public License 1.0 AND Apache License Version 2.0 AND Common Development and Distribution License 1.0"
-	EXPECTED_POLICY = schema.POLICY_ALLOW
+	EXPECTED_POLICY = schema.POLICY_NEEDS_REVIEW
 	innerTestLicenseExpressionParsing(t, EXP, EXPECTED_NAME, EXPECTED_POLICY)
 
 	// a AND b OR c
